@@ -7,10 +7,10 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public class FileHandler {
-    public static List<String> listConfigs(String configDirPath){
+public class DirectoryHandler {
+    public static List<String> getFiles(String path){
         try {
-            Stream<Path> files = Files.list(Path.of(configDirPath));
+            Stream<Path> files = Files.list(Path.of(path));
             return files.map((file) -> file.getFileName().toString()).collect(Collectors.toList());
         } catch (IOException e) {
             throw new RuntimeException(e);
